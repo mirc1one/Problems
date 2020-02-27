@@ -1,6 +1,5 @@
 /**
  * Cerinta : sa se sorteze matricea crescator
- *
  */
 
 /**
@@ -23,8 +22,8 @@ for (let i = 0; i < matrix.length; i++) {
 
 for (let i = 0; i < flatenedMatrix.length - 1; i++) {
     for (let j = 0; j < flatenedMatrix.length - i - 1; j++) {
+        // swap
         if (flatenedMatrix[j] > flatenedMatrix[j + 1]) {
-            // swap
             const temp = flatenedMatrix[j]
             flatenedMatrix[j] = flatenedMatrix[j + 1]
             flatenedMatrix[j + 1] = temp
@@ -42,6 +41,7 @@ for (let i = 0; i < matrix.length; i++) {
     }
 }
 
+console.log(matrix)
 
 /**
  * Complexitate: O(n^2) sau in cel mai bun caz O(n*logn)
@@ -56,18 +56,19 @@ const rowLength = matrix.length
 const columnLength = matrix[0].length
 const total = rowLength * columnLength
 
-// r + c = pozitia
 let r = 0
 let c = 0
 let nextRow = 0
 let nextCol = 0
 
 for (let i = 0; i < total; i++) {    
+    // reset row / col
     r = c = 0
 
+    // optimizare bubblesort
     const currentTotal = total - i - 1
     for (let j = 0; j < currentTotal; j++) {
-        // next
+        // fetch next
         if (j % columnLength === 0 && j !== 0) {
             r++
             c = 0
@@ -78,6 +79,8 @@ for (let i = 0; i < total; i++) {
         let current = matrix[r][c]
         let next
 
+        // find next index in the matrix
+        // treated as an array
         if (c === columnLength - 1) {
             next = matrix[r + 1][0]
             nextRow = r + 1
@@ -88,6 +91,7 @@ for (let i = 0; i < total; i++) {
             nextCol = c + 1
         }
         
+        // swap
         if (current > next) {
             const tmp = next
             matrix[ nextRow ][ nextCol ] = matrix[r][c]
