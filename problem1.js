@@ -1,9 +1,51 @@
-/*
+/**
  * Cerinta : sa se sorteze matricea crescator
  *
- * Complexity : O(n^2)
-**/
+ */
 
+/**
+ * Complexitate: 3*O(n^2) sau 2*O(n^2) cu Array.flat()
+ */
+const matrix = [
+    [24, 27, 1, 3],
+    [30, 5, 10, 8],
+    [31, 11, 16, 15]
+]
+
+const flatenedMatrix = []; // flatenedMatrix = matrix.flat()
+for (let i = 0; i < matrix.length; i++) {
+    const subMatrix = matrix[i]
+
+    for (let j = 0; j < subMatrix.length; j++) {
+        flatenedMatrix.push(subMatrix[j])
+    }
+}
+
+for (let i = 0; i < flatenedMatrix.length - 1; i++) {
+    for (let j = 0; j < flatenedMatrix.length - i - 1; j++) {
+        if (flatenedMatrix[j] > flatenedMatrix[j + 1]) {
+            // swap
+            const temp = flatenedMatrix[j]
+            flatenedMatrix[j] = flatenedMatrix[j + 1]
+            flatenedMatrix[j + 1] = temp
+        }
+    }
+}
+
+let k = 0;
+for (let i = 0; i < matrix.length; i++) {
+    const subMatrix = matrix[i]
+
+    for (let j = 0; j < subMatrix.length; j++) {
+        subMatrix[j] = flatenedMatrix[k]
+        k++
+    }
+}
+
+
+/**
+ * Complexitate: O(n^2) sau in cel mai bun caz O(n*logn)
+ */
 const matrix = [
     [24, 27, 1, 3],
     [30, 5, 10, 8],
@@ -20,7 +62,6 @@ let c = 0
 let nextRow = 0
 let nextCol = 0
 
-// debugger
 for (let i = 0; i < total; i++) {    
     r = c = 0
 
