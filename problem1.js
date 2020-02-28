@@ -65,8 +65,7 @@ for (let i = 0; i < total; i++) {
     // reset row / col
     r = c = 0
 
-    // optimizare bubblesort
-    const currentTotal = total - i - 1
+    const currentTotal = total - i - 1 // optimizare bubblesort
     for (let j = 0; j < currentTotal; j++) {
         // fetch next
         if (j !== 0) {
