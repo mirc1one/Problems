@@ -1,5 +1,5 @@
 /**
- * Cerinta : sa se sorteze matricea crescator
+ * Cerinta : sa se sorteze matricea crescator N x M 
  */
 
 /**
