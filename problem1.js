@@ -69,11 +69,13 @@ for (let i = 0; i < total; i++) {
     const currentTotal = total - i - 1
     for (let j = 0; j < currentTotal; j++) {
         // fetch next
-        if (j % columnLength === 0 && j !== 0) {
-            r++
-            c = 0
-        } else if (j !== 0) {
-            c++
+        if (j !== 0) {
+            if (j % columnLength === 0) {
+                r++
+                c = 0
+            } else {
+                c++
+            }
         }
 
         let current = matrix[r][c]
