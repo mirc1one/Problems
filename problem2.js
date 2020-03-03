@@ -25,4 +25,4 @@ if ( isNegative( integer ) ) {
     reversedInteger = -1 * reversedInteger
 }
 
-console.log(reversedInteger)
+console.log( reversedInteger )
